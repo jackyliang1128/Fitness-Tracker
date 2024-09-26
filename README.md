@@ -1,11 +1,26 @@
-# My Personal Project
+# My Personal Project Proposal
 
-## A subtitle 
-test2
+## Idea: Fitness Tracker
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+The Fitness Tracker application is designed for individuals who routinely engage in physical activities focused on cardiovascular and workout exercises. By providing a comprehensive graphical interface, users are able to log details of their activities, monitor their progress, and personalize their workout plans. Furthermore, this tool will offer analytics, based on users' progress, that can assist in visualizing the effectiveness of their routine. The *target users* is shown below (non-exhaustive).
 
-An example of text with **bold** and *italic* fonts.  
+*Target Users:*
+- Bodybuilders
+- Powerlifters
+- Athletes
+- Personal trainers
+- Rehabilitation patients
+- Fitness beginners
+
+The Fitness Tracker intends to implement a variety of features that encapsulate what a user needs to reach their fitness goals. The application shall be comprehensive while providing an intuitive user experience. The *application* shall adhere to the following list.
+
+*What the application will do:*
+- **Create an exercise** - user will create an exercise with exercise type, sets, repetitions, and weight
+- **Create a workout plan** - user will create a list of exercise to complete for the session
+- **Track progress** - track progress over multiple fitness sessions and provide visualization on various data if requested by users (duration, total weights lifted)
+- **Summarize fitness sessions** - provide summaries of current session and overall fitness progress
+- **Suggests exercise activities** - allows users to filter based on exercise type and select from an existing database of exercises
+
+As a consistent "gym-goer", I enjoy participating in fitness activities that improves my physical health. However, while I am focussed in the moment of exercising, I often forget the next exercising I should be doing or even the set I am currently on. Therefore, the Fitness Tracker serves as an organizational tool for me to log my activities. By implementing a feature to track progress overtime, the tracker can assist me in identfiying my strengths and weaknesses. Overall, I am aim to combine my interests in exercising with my skills in programming to create a tool that can help individual achieve their fitness goals and improve their health.
+
+
