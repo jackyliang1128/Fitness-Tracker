@@ -23,4 +23,9 @@ The Fitness Tracker intends to implement a variety of features that encapsulate 
 
 As a consistent "gym-goer", I enjoy participating in fitness activities that improves my physical health. However, while I am focussed in the moment of exercising, I often forget the next exercising I should be doing or even the set I am currently on. Therefore, the Fitness Tracker serves as an organizational tool for me to log my activities. By implementing a feature to track progress overtime, the tracker can assist me in identfiying my strengths and weaknesses. Overall, I am aim to combine my interests in exercising with my skills in programming to create a tool that can help individual achieve their fitness goals and improve their health.
 
-
+## User Stories
+- As a user, I want to be able to add an exercise to my fitness session
+- As a user, I want to be able to modify the number of repetion, sets, and weight of one of my exercise
+- As a user, I want to be able to view a list of exercises I will have to do for a fitness session
+- As a user, I want to be able to see how many hours I have spent on my fitness session
+- As a user, I want to be able to see what exercise are suggested to me considering the type I want
