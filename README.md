@@ -16,7 +16,7 @@ The Fitness Tracker intends to implement a variety of features that encapsulate 
 
 *What the application will do:*
 - **Create an exercise** - user will create an exercise with exercise type, sets, repetitions, and weight
-- **Create a workout plan** - user will create a list of exercise to complete for the session
+- **Create a workout plan** - user will create a list of exercise to complete for the session with a name, goal, duration, category, and a completion tracker.
 - **Track progress** - track progress over multiple fitness sessions and provide visualization on various data if requested by users (duration, total weights lifted)
 - **Summarize fitness sessions** - provide summaries of current session and overall fitness progress
 - **Suggests exercise activities** - allows users to filter based on exercise type and select from an existing database of exercises
