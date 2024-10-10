@@ -27,31 +27,56 @@ public class ExerciseTest {
 
     @Test
     void testAddExerciseAmount() {
+        testExercise.addExerciseAmount(185, 2, 4);
+        assertFalse(testExercise.getIsComplete());
+        assertEquals(185, testExercise.getTargetWeight());
+        assertEquals(7, testExercise.getTargetSet());
+        assertEquals(4, testExercise.getTargetRepetition());
+        
 
     }
 
     @Test
     void testRemoveExerciseAmount() {
+        testExercise.reduceExerciseAmount(3);
+        assertFalse(testExercise.getIsComplete());
+        assertEquals(2, testExercise.getTargetSet());
 
     }
 
     @Test
-    void testCalculateCompletionTime() {
-
+    void testRemoveAllExerciseAmount() {
+        testExercise.reduceExerciseAmount(5);
+        assertTrue(testExercise.getIsComplete());
     }
 
     @Test
     void testCalculateVolume() {
+        assertEquals(0, testExercise.calculateVolume());
+        testExercise.doExercise();
+        testExercise.doExercise();
+        assertEquals(2250, testExercise.calculateVolume());
 
     }
 
     @Test
     void testExerciseNotComplete() {
-
+        assertFalse(testExercise.isExerciseCompleted());
+        testExercise.doExercise();
+        testExercise.doExercise();
+        assertFalse(testExercise.isExerciseCompleted());
     }
 
     @Test
     void testExerciseComplete() {
+        assertFalse(testExercise.isExerciseCompleted());
+        testExercise.doExercise();
+        testExercise.doExercise();
+        assertFalse(testExercise.isExerciseCompleted());
+        testExercise.doExercise();
+        testExercise.doExercise();
+        testExercise.doExercise();
+        assertTrue(testExercise.isExerciseCompleted());
 
     }
 
