@@ -17,10 +17,9 @@ public class Exercise {
 
     /*
      * REQUIRES: exerciseName has a non-zero length
-     * weight > 0, set > 0, rep > 0
-     * EFFECTS: instantiate an exercise with a name, type, weight to use
-     * set to accomplish, rep per set.
-     * exercise is not completed
+     *           weight > 0, set > 0, rep > 0
+     * EFFECTS: instantiate an exercise with a name, type, weight, set to accomplish, rep per set.
+     *          exercise is not completed and duration is 0
      */
     public Exercise(String exerciseName, MuscleRegion exerciseType, double weight, int set, int rep) {
         name = exerciseName;
@@ -30,15 +29,16 @@ public class Exercise {
         targetRepetition = rep;
 
         isComplete = false;
+        duration = 0;
 
     }
 
     /*
      * REQUIRES: isComplete = true, weight > 0, set > 0, rep > 0
      * MODIFIES: this
-     * EFFECTS: add more sets and repetitions when the exercise is completed
+     * EFFECTS: add more sets and repetitions at new weight when the exercise is completed
      */
-    public void addExercise(double weight, int set, int rep) {
+    public void addExerciseAmount(double weight, int set, int rep) {
 
     }
 
@@ -47,7 +47,7 @@ public class Exercise {
      * MODIFIES: this
      * EFFECTS: reduce amount of set left in the execise
      */
-    public void reduceExercise(int set) {
+    public void reduceExerciseAmount(int set) {
 
     }
 
@@ -55,8 +55,8 @@ public class Exercise {
      * MODIFIES: this
      * EFFECTS: check whether the exercise has been completed
      */
-    public void isCompleted() {
-
+    public boolean isExerciseCompleted() {
+        return false;
     }
 
     /*
