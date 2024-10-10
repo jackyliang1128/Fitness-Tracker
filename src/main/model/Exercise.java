@@ -13,6 +13,7 @@ public class Exercise {
 
     private boolean isComplete;
     private int currentSet;
+    private double duration; // time in minutes
 
     /*
      * REQUIRES: exerciseName has a non-zero length
@@ -44,13 +45,30 @@ public class Exercise {
     /*
      * REQUIRES: isComplete = false, set <= targetSet - currentSet
      * MODIFIES: this
-     * EFFECTS:  reduce amount of set left in the execise
+     * EFFECTS: reduce amount of set left in the execise
      */
     public void reduceExercise(int set) {
 
     }
 
-    /* 
+    /*
+     * MODIFIES: this
+     * EFFECTS: check whether the exercise has been completed
+     */
+    public void isCompleted() {
+
+    }
+
+    /*
+     * REQUIRES: isComplete = true
+     * MODIFIES: this
+     * EFFECTS: calculate the time taken to complete the exercise
+     */
+    public void calculateCompletionTime(){
+
+    }
+
+    /*
      * EFFECTS: return the current total volume performed
      */
     public double calculateVolume() {
@@ -87,10 +105,6 @@ public class Exercise {
 
     public void setTargetRepetition(int repetition) {
         this.targetRepetition = repetition;
-    }
-
-    public boolean isComplete() {
-        return isComplete;
     }
 
     public void setComplete(boolean isComplete) {
