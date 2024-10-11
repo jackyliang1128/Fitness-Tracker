@@ -12,9 +12,9 @@ public class FitnessPlan {
     private String planName;
     private double duration;
 
-
     /*
-     * EFFECTS: create a fitness plan with am empty list of workouts with no time done
+     * EFFECTS: create a fitness plan with am empty list of workouts with no time
+     * done
      */
     public FitnessPlan(String name) {
         planName = name;

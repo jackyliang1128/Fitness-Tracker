@@ -76,7 +76,7 @@ public class Exercise {
         isComplete = isExerciseCompleted();
     }
 
-    /* 
+    /*
      * EFFECTS: check whether the exercise has been completed
      */
     public boolean isExerciseCompleted() {

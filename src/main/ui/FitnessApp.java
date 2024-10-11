@@ -11,6 +11,7 @@ public class FitnessApp {
     private List<FitnessPlan> fitnessLog;
     private Scanner input;
     private FitnessPlan currFitnessPlan;
+    private Exercise currExercise;
 
     // EFFECTS: runs the application
     public FitnessApp() {
@@ -56,7 +57,7 @@ public class FitnessApp {
         }
 
     }
-    
+
     // EFFECTS: display the homepage menu
     private void displayInitialMenu() {
         System.out.println("\nPlease select from the following options:");
@@ -102,6 +103,7 @@ public class FitnessApp {
         System.out.println("What would you like to do to the plan?");
         System.out.println("\ta -> add an exercise");
         System.out.println("\tr -> remove an exercise");
+        System.out.println("\tm -> modify an exercise in the plan");
         System.out.println("\tv -> view the remanining exercise you still have to complete");
         System.out.println("\tt -> add time to the current plan");
         System.out.println("\ts -> get a summary of your current plan");
@@ -109,12 +111,17 @@ public class FitnessApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: process the command from user on the display the modify the current fitness plan
+    // EFFECTS: process the command from user on the display the modify the current
+    // fitness plan
     private void processModifyCommand(String command) {
         if (command.equals("a")) {
             doAddExercise();
         } else if (command.equals("r")) {
             doRemoveExercise();
+        } else if (command.equals("m")) {
+            displaySelectExerciseMenu();
+            displayModifyExerciseMenu();
+            processModifyExerciseMenu(input.next());
         } else if (command.equals("v")) {
             doViewExerciseLeft();
         } else if (command.equals("t")) {
@@ -126,7 +133,70 @@ public class FitnessApp {
         }
 
     }
-    
+
+    // MODIFIES: this
+    // EFFECTS: select the exercise in the current fitness plan to modify
+    private void displaySelectExerciseMenu() {
+        List<Exercise> currWorkouts = currFitnessPlan.getWorkouts();
+        int counter = 0;
+
+        System.out.println("which exercise would you like to modify?");
+        for (Exercise e : currWorkouts) {
+            System.out.println("\t" + counter + " ->" + e.getName());
+        }
+
+        currExercise = currWorkouts.get(input.nextInt());
+    }
+
+    // EFFECTS: display the modify exercise menu
+    private void displayModifyExerciseMenu() {
+        System.out.println("What would you like to do to the selected exercise?");
+        System.out.println("\ta -> add amount");
+        System.out.println("\tr -> reduce amount");
+    }
+
+    // MODIFIES: this
+    // EFFECTS: process the command from the user on the display the modify the
+    // current exercise
+    private void processModifyExerciseMenu(String command) {
+        if (command.equals("a")) {
+            doAddExerciseAmt();
+        } else if (command.equals("r")) {
+            doRemoveExerciseAmt();
+        } else {
+            System.out.println("Selection not valid...");
+        }
+    }
+
+    // MODIFIES: this, FitnessPlan, Exercise
+    // EFFECTS: increase the difficulty of the exercise
+    private void doAddExerciseAmt() {
+        int addSet;
+        int rep;
+        double weight;
+
+        System.out.println("set to add?");
+        addSet = input.nextInt();
+        System.out.println("reps to target?");
+        rep = input.nextInt();
+        System.out.println(("weight to target?"));
+        weight = input.nextDouble();
+
+        currExercise.addExerciseAmount(weight, addSet, rep);
+    }
+
+    // MODIFIES: this, FitnessPlan, Exercise
+    // Effects: decrease the difficulty of the exercise
+    private void doRemoveExerciseAmt() {
+        int removeSet;
+
+        System.out.println(("sets to reduce?"));
+        removeSet = input.nextInt();
+
+        currExercise.reduceExerciseAmount(removeSet);
+
+    }
+
     // MODIFIES: this, FitnessPlan
     // EFFECTS: add an exercise to the selected fitness plan
     private void doAddExercise() {
@@ -183,7 +253,8 @@ public class FitnessApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: shows all the exercises in the selected plan and the remaining exercises
+    // EFFECTS: shows all the exercises in the selected plan and the remaining
+    // exercises
     private void doViewExerciseLeft() {
         List<Exercise> allWorkouts = currFitnessPlan.getWorkouts();
         List<Exercise> remaningWorkouts = currFitnessPlan.viewRemaningExercise();
@@ -197,7 +268,6 @@ public class FitnessApp {
         for (Exercise w : remaningWorkouts) {
             System.out.println(w.getName());
         }
-
     }
 
     // MODIFIES: FitnessPlan
