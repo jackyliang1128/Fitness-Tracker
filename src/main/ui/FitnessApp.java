@@ -233,7 +233,7 @@ public class FitnessApp {
 
         for (MuscleRegion m : allMuscle) {
             // System.out.println(counter + " -> " + m);
-            System.out.println(m);
+            System.out.println(m + "\n");
         }
 
         selectedMuscle = MuscleRegion.valueOf(input.next());
@@ -265,14 +265,14 @@ public class FitnessApp {
         List<Exercise> allWorkouts = currFitnessPlan.getWorkouts();
         List<Exercise> remaningWorkouts = currFitnessPlan.viewRemaningExercise();
 
-        System.out.println("This is all the exercises in the plan!");
+        System.out.println("\nThis is all the exercises in the plan!\n");
         for (Exercise w : allWorkouts) {
             // System.out.println(w.getName());
             System.out.println(w.getName() + " " + w.getTargetWeight() + " lbs " + w.getTargetSet()
                     + " sets " + w.getTargetRepetition() + " reps");
         }
 
-        System.out.println("This is the exercises you still have to do!");
+        System.out.println("\nThis is the exercises you still have to do!\n");
         for (Exercise w : remaningWorkouts) {
             // System.out.println(w.getName());
             System.out.println(w.getName() + " " + w.getTargetWeight() + " lbs " + w.getTargetSet()
