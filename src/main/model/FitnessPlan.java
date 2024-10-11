@@ -26,9 +26,14 @@ public class FitnessPlan {
      * EFFECTS: select the current exercise to be completed
      */
     public void beginExercise() {
+        for (Exercise e : workouts) {
+            if (!e.isExerciseCompleted()) {
+                currentExercise = e;
+                break;
+            }
+        }
 
     }
-
 
     /*
      * REQUIRES:
@@ -36,7 +41,7 @@ public class FitnessPlan {
      * EFFECTS: add an exercise to the desired location in the fitness plan
      */
     public void addExercise(Exercise e, int location) {
-
+        workouts.add(location, e);
     }
 
     /*
@@ -45,17 +50,25 @@ public class FitnessPlan {
      * EFFECTS: remove an existing exercise in the fitness plan
      */
     public void removeExercise(int location) {
-
+        workouts.remove(location);
     }
 
     /*
-     * REQUIRES: workouts.size() > 0 
+     * REQUIRES: workouts.size() > 0
      * MODIFIES:
      * EFFECTS: returns a list of exercise that is not completed, null if all
      * exercise completed
      */
     public List<Exercise> viewRemaningExercise() {
-        return null;
+        List<Exercise> remainExercise = new ArrayList<>();
+
+        for (Exercise e : workouts) {
+            if (!e.isExerciseCompleted()) {
+                remainExercise.add(e);
+            }
+        }
+
+        return remainExercise;
     }
 
     /*
@@ -64,6 +77,7 @@ public class FitnessPlan {
      * EFFECTS: increment the time for each exercise completed
      */
     public void incrementExerciseTime(double time) {
+        duration += time;
 
     }
 
@@ -82,7 +96,13 @@ public class FitnessPlan {
      * EFFECTS: return the total volume performed in the fitness plan
      */
     public double calculateTotalVolume() {
-        return 0;
+        int totalVolume = 0;
+
+        for (Exercise e : workouts) {
+            totalVolume += e.calculateVolume();
+
+        }
+        return totalVolume;
     }
 
     public void setWorkouts(List<Exercise> workouts) {
