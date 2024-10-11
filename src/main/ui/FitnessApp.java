@@ -6,16 +6,21 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
+// Fitness Tracker application
 public class FitnessApp {
     private List<FitnessPlan> fitnessLog;
     private Scanner input;
     private FitnessPlan currFitnessPlan;
 
+    // EFFECTS: runs the application
     public FitnessApp() {
         fitnessLog = new ArrayList<>();
         runFitness();
     }
 
+    // MODIFIES: this
+    // EFFECTS: process user input from the "home page"
+    // *NOTE*: references TellerApp from lecture
     private void runFitness() {
         boolean appRunning = true;
         String command = null;
@@ -39,6 +44,8 @@ public class FitnessApp {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: processes user command of the homepage
     private void processCommand(String command) {
         if (command.equals("c")) {
             createFitnessPlan();
@@ -49,7 +56,8 @@ public class FitnessApp {
         }
 
     }
-
+    
+    // EFFECTS: display the homepage menu
     private void displayInitialMenu() {
         System.out.println("\nPlease select from the following options:");
         System.out.println("\tc -> create a new fitness plan");
@@ -58,6 +66,8 @@ public class FitnessApp {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: create a fitness plan and add it to the fitness plan log
     private void createFitnessPlan() {
         FitnessPlan currFitnessPlan;
 
@@ -66,6 +76,8 @@ public class FitnessApp {
         fitnessLog.add(currFitnessPlan);
     }
 
+    // MODIFIES: this
+    // EFFEFCTS: display the menu to choose current fitness plan
     private void displayChoosePlanMenu() {
 
         if (fitnessLog.isEmpty()) {
@@ -85,6 +97,7 @@ public class FitnessApp {
 
     }
 
+    // EFFECTS: display the menu that modify the current fitness plan
     private void displayModifyMenu() {
         System.out.println("What would you like to do to the plan?");
         System.out.println("\ta -> add an exercise");
@@ -95,6 +108,8 @@ public class FitnessApp {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: process the command from user on the display the modify the current fitness plan
     private void processModifyCommand(String command) {
         if (command.equals("a")) {
             doAddExercise();
@@ -111,7 +126,9 @@ public class FitnessApp {
         }
 
     }
-
+    
+    // MODIFIES: this, FitnessPlan
+    // EFFECTS: add an exercise to the selected fitness plan
     private void doAddExercise() {
         Exercise currExercise;
 
@@ -134,6 +151,8 @@ public class FitnessApp {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: process user input on selecting the type of exercise
     private MuscleRegion selectMuscle() {
         MuscleRegion selectedMuscle;
         MuscleRegion[] allMuscle = MuscleRegion.values();
@@ -148,6 +167,8 @@ public class FitnessApp {
         return selectedMuscle;
     }
 
+    // MODIFIES: this, FitnessPlan
+    // EFFECTS: remove an exercise from the selected fitnessplan
     private void doRemoveExercise() {
         List<Exercise> currWorkouts = currFitnessPlan.getWorkouts();
         int counter = 0;
@@ -161,6 +182,8 @@ public class FitnessApp {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: shows all the exercises in the selected plan and the remaining exercises
     private void doViewExerciseLeft() {
         List<Exercise> allWorkouts = currFitnessPlan.getWorkouts();
         List<Exercise> remaningWorkouts = currFitnessPlan.viewRemaningExercise();
@@ -177,6 +200,8 @@ public class FitnessApp {
 
     }
 
+    // MODIFIES: FitnessPlan
+    // EFFECTS: add time to the fitness plan
     private void doAddTime() {
         double timeToAdd;
 
@@ -187,6 +212,7 @@ public class FitnessApp {
 
     }
 
+    // EFFECTS: get a summary of the fitness plan stats
     private void doSummary() {
         int totalWeight = currFitnessPlan.calculateTotalVolume();
         double totalTime = currFitnessPlan.getDuration();
