@@ -11,7 +11,6 @@ public class FitnessPlan {
 
     private String planName;
     private double duration;
-    private Exercise currentExercise;
 
     public FitnessPlan(String name) {
         planName = name;
@@ -23,16 +22,15 @@ public class FitnessPlan {
     /*
      * REQUIRES: workouts.size() > 0
      * MODIFIES:
-     * EFFECTS: select the current exercise to be completed
+     * EFFECTS: select the next exercise to be completed
      */
-    public void beginExercise() {
+    public Exercise beginExercise() {
         for (Exercise e : workouts) {
             if (!e.isExerciseCompleted()) {
-                currentExercise = e;
-                break;
+                return e;
             }
         }
-
+        return null;
     }
 
     /*
@@ -119,10 +117,6 @@ public class FitnessPlan {
 
     public double getDuration() {
         return duration;
-    }
-
-    public Exercise getCurrentExercise() {
-        return currentExercise;
     }
 
 }

@@ -27,6 +27,7 @@ public class FitnessPlanTest {
         e2 = new Exercise("Shoulder Press", MuscleRegion.SHOULDER, 60, 3, 8);
         e3 = new Exercise("Lateral Raise", MuscleRegion.SHOULDER, 20, 3, 12);
 
+        exerciseList = new ArrayList<>();
         exerciseList.add(e1);
         exerciseList.add(e2);
         exerciseList.add(e3);
@@ -39,19 +40,20 @@ public class FitnessPlanTest {
 
     @Test
     void testConstructor() {
-        assertEquals("Monday Workout", testFitnessPlan.getPlanName());
-        assertEquals(0, testFitnessPlan.getDuration());
-        assertEquals(0, testFitnessPlan.getWorkouts().size());
+        FitnessPlan testFitnessPlan2 = new FitnessPlan("Friday Workout");
+        assertEquals("Friday Workout", testFitnessPlan2.getPlanName());
+        assertEquals(0, testFitnessPlan2.getDuration());
+        assertEquals(0, testFitnessPlan2.getWorkouts().size());
     }
 
     @Test
     void testBeginExercise() {
-        testFitnessPlan.beginExercise();
-        assertEquals(e1, testFitnessPlan.getCurrentExercise());
-        e1.setIsComplete(true);
-        e2.setIsComplete(true);
-        testFitnessPlan.beginExercise();
-        assertEquals(e3, testFitnessPlan.getCurrentExercise());
+        assertEquals(e1, testFitnessPlan.beginExercise());
+        e1.setCurrentSet(e1.getTargetSet());
+        e2.setCurrentSet(e2.getTargetSet());
+        assertEquals(e3, testFitnessPlan.beginExercise());
+        e3.setCurrentSet(e3.getTargetSet());
+        assertEquals(null, testFitnessPlan.beginExercise());
     }
 
     @Test
@@ -75,7 +77,7 @@ public class FitnessPlanTest {
         testExerciseList.add(e2);
         testExerciseList.add(e3);
 
-        e1.setIsComplete(true);
+        e1.setCurrentSet(e1.getTargetSet());
 
         assertEquals(testExerciseList, testFitnessPlan.viewRemaningExercise());
     
@@ -91,11 +93,13 @@ public class FitnessPlanTest {
 
     @Test
     void calculateTotalVolume(){
-        e1.setIsComplete(true);
-        e2.setIsComplete(true);
-        e3.setIsComplete(true);
+        e1.doExercise();
+        e1.doExercise();
+        e1.doExercise();
+        e1.doExercise();
+        e1.doExercise();
 
-        assertEquals(7785, testFitnessPlan.calculateTotalVolume());
+        assertEquals(5625, testFitnessPlan.calculateTotalVolume());
         
 
     }
