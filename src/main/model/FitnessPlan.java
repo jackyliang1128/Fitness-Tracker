@@ -93,7 +93,7 @@ public class FitnessPlan {
      * MODIFIES:
      * EFFECTS: return the total volume performed in the fitness plan
      */
-    public double calculateTotalVolume() {
+    public int calculateTotalVolume() {
         int totalVolume = 0;
 
         for (Exercise e : workouts) {
