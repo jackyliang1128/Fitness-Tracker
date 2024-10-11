@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class FitnessPlan {
 
     private List<Exercise> workouts;
+
     private String planName;
     private double duration;
     private Exercise currentExercise;
@@ -24,17 +25,17 @@ public class FitnessPlan {
      * MODIFIES:
      * EFFECTS: select the current exercise to be completed
      */
-    public void beginExercise (){
+    public void beginExercise() {
 
     }
 
 
     /*
-     * REQUIRES: 
+     * REQUIRES:
      * MODIFIES:
      * EFFECTS: add an exercise to the desired location in the fitness plan
      */
-    public void addExercise(Exercise e, int location){
+    public void addExercise(Exercise e, int location) {
 
     }
 
@@ -43,16 +44,17 @@ public class FitnessPlan {
      * MODIFIES:
      * EFFECTS: remove an existing exercise in the fitness plan
      */
-    public void removeExercise(int location){
+    public void removeExercise(int location) {
 
     }
 
     /*
-     * REQUIRES: workouts.size() > 0
+     * REQUIRES: workouts.size() > 0 
      * MODIFIES:
-     * EFFECTS: returns a list of exercise that is not completed, null if all exercise completed
+     * EFFECTS: returns a list of exercise that is not completed, null if all
+     * exercise completed
      */
-    public List<Exercise> viewRemaningExercise(){
+    public List<Exercise> viewRemaningExercise() {
         return null;
     }
 
@@ -61,27 +63,46 @@ public class FitnessPlan {
      * MODIFIES:
      * EFFECTS: increment the time for each exercise completed
      */
-    public void incrementExerciseTime(){
+    public void incrementExerciseTime(double time) {
 
     }
 
-    /*
-     * REQUIRES:
-     * MODIFIES:
-     * EFFECTS: return total running time of fitness plan
-     */
-    public double calculateTotalTime(){
-        return 0;
-    }
+    // /*
+    // * REQUIRES:
+    // * MODIFIES:
+    // * EFFECTS: return total running time of fitness plan
+    // */
+    // public double calculateTotalTime() {
+    // return 0;
+    // }
 
     /*
      * REQUIRES:
      * MODIFIES:
      * EFFECTS: return the total volume performed in the fitness plan
      */
-    public double calculateTotalVolume(){
+    public double calculateTotalVolume() {
         return 0;
     }
 
+    public void setWorkouts(List<Exercise> workouts) {
+        this.workouts = workouts;
+    }
+
+    public List<Exercise> getWorkouts() {
+        return workouts;
+    }
+
+    public String getPlanName() {
+        return planName;
+    }
+
+    public double getDuration() {
+        return duration;
+    }
+
+    public Exercise getCurrentExercise() {
+        return currentExercise;
+    }
 
 }
