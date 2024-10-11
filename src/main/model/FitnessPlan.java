@@ -12,6 +12,10 @@ public class FitnessPlan {
     private String planName;
     private double duration;
 
+
+    /*
+     * EFFECTS: create a fitness plan with am empty list of workouts with no time done
+     */
     public FitnessPlan(String name) {
         planName = name;
         duration = 0;
@@ -21,8 +25,8 @@ public class FitnessPlan {
 
     /*
      * REQUIRES: workouts.size() > 0
-     * MODIFIES:
-     * EFFECTS: select the next exercise to be completed
+     * EFFECTS: return the next exercise to be completed
+     * if all exercise is complete, return null
      */
     public Exercise beginExercise() {
         for (Exercise e : workouts) {
@@ -34,8 +38,7 @@ public class FitnessPlan {
     }
 
     /*
-     * REQUIRES:
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS: add an exercise to the desired location in the fitness plan
      */
     public void addExercise(Exercise e, int location) {
@@ -44,7 +47,7 @@ public class FitnessPlan {
 
     /*
      * REQUIRES: workouts.size() > 0 and exercise is not completed
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS: remove an existing exercise in the fitness plan
      */
     public void removeExercise(int location) {
@@ -53,7 +56,7 @@ public class FitnessPlan {
 
     /*
      * REQUIRES: workouts.size() > 0
-     * MODIFIES:
+     * MODIFIES: this
      * EFFECTS: returns a list of exercise that is not completed, null if all
      * exercise completed
      */
@@ -71,8 +74,8 @@ public class FitnessPlan {
 
     /*
      * REQUIRES: currentExercise is completed
-     * MODIFIES:
-     * EFFECTS: increment the time for each exercise completed
+     * MODIFIES: this
+     * EFFECTS: increment the time taken to complete the exercise
      */
     public void incrementExerciseTime(double time) {
         duration += time;
@@ -89,8 +92,6 @@ public class FitnessPlan {
     // }
 
     /*
-     * REQUIRES:
-     * MODIFIES:
      * EFFECTS: return the total volume performed in the fitness plan
      */
     public int calculateTotalVolume() {

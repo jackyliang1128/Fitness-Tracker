@@ -3,7 +3,7 @@ package model;
 import java.util.List;
 import java.util.ArrayList;
 
-// Representes an exercise having a name, type, weight, set, and repetition
+// Represents an exercise having a name, type, weight, set, and repetition
 // Exercises are 'completed' when all sets have been accomplished
 //
 public class Exercise {
@@ -23,8 +23,8 @@ public class Exercise {
      * REQUIRES: exerciseName has a non-zero length
      * weight > 0, set > 0, rep > 0
      * EFFECTS: instantiate an exercise with a name, type, weight, set to
-     * accomplish, rep per set.
-     * exercise is not completed and duration is 0
+     * accomplish, rep per set, that is not completed
+     * 
      */
     public Exercise(String exerciseName, MuscleRegion exerciseType, double weight, int set, int rep) {
         name = exerciseName;
@@ -43,11 +43,12 @@ public class Exercise {
      * REQUIRES: isComplete = false
      * MODIFIES: this
      * EFFECTS: complete one set of the exercise and track the repetitions done
-     * the checks if exercise is completed
+     * then checks if exercise is completed
      */
     public void doExercise() {
         currentSet++;
         repDone.add(targetRepetition);
+        isComplete = isExerciseCompleted();
     }
 
     /*
@@ -75,8 +76,7 @@ public class Exercise {
         isComplete = isExerciseCompleted();
     }
 
-    /*
-     * MODIFIES: this
+    /* 
      * EFFECTS: check whether the exercise has been completed
      */
     public boolean isExerciseCompleted() {
@@ -93,7 +93,7 @@ public class Exercise {
     // }
 
     /*
-     * EFFECTS: return the current total volume performed
+     * EFFECTS: return the current total volume performed based on the reps done
      */
     public double calculateVolume() {
         int vol = 0;
