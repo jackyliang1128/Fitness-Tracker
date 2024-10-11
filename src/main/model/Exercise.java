@@ -123,12 +123,12 @@ public class Exercise {
         return targetRepetition;
     }
 
-    public void setIsComplete(boolean isComplete) {
-        this.isComplete = isComplete;
-    }
-
     public boolean getIsComplete() {
         return isComplete;
+    }
+
+    public void setCurrentSet(int currentSet) {
+        this.currentSet = currentSet;
     }
 
 }
