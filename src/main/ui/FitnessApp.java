@@ -142,7 +142,10 @@ public class FitnessApp {
 
         System.out.println("which exercise would you like to modify?");
         for (Exercise e : currWorkouts) {
-            System.out.println("\t" + counter + " ->" + e.getName());
+            System.out.println(
+                    "\t" + counter + " -> " + e.getName() + " " + e.getTargetWeight() + " lbs " + e.getTargetSet()
+                            + " sets " + e.getTargetRepetition() + " reps");
+            counter++;
         }
 
         currExercise = currWorkouts.get(input.nextInt());
@@ -244,7 +247,10 @@ public class FitnessApp {
         int counter = 0;
 
         for (Exercise e : currWorkouts) {
-            System.out.println(counter + " -> " + e.getName());
+            System.out.println(
+                    "\t" + counter + " -> " + e.getName() + " " + e.getTargetWeight() + " lbs " + e.getTargetSet()
+                            + " sets " + e.getTargetRepetition() + " reps");
+            counter++;
         }
 
         System.out.println("exercise to remove?");
@@ -261,12 +267,16 @@ public class FitnessApp {
 
         System.out.println("This is all the exercises in the plan!");
         for (Exercise w : allWorkouts) {
-            System.out.println(w.getName());
+            // System.out.println(w.getName());
+            System.out.println(w.getName() + " " + w.getTargetWeight() + " lbs " + w.getTargetSet()
+                    + " sets " + w.getTargetRepetition() + " reps");
         }
 
         System.out.println("This is the exercises you still have to do!");
         for (Exercise w : remaningWorkouts) {
-            System.out.println(w.getName());
+            // System.out.println(w.getName());
+            System.out.println(w.getName() + " " + w.getTargetWeight() + " lbs " + w.getTargetSet()
+                    + " sets " + w.getTargetRepetition() + " reps");
         }
     }
 

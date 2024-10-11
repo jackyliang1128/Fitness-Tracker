@@ -80,4 +80,11 @@ public class ExerciseTest {
 
     }
 
+    @Test
+    void testChangingCurrentSet(){
+        assertEquals(0, testExercise.getCurrentSet());
+        testExercise.setCurrentSet(21);
+        assertEquals(21, testExercise.getCurrentSet());
+    }
+
 }

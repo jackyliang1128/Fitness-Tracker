@@ -16,6 +16,7 @@ public class Exercise {
 
     private boolean isComplete;
     private int currentSet;
+
     private List<Integer> repDone;
     // private double duration; // time in minutes
 
@@ -129,6 +130,10 @@ public class Exercise {
 
     public void setCurrentSet(int currentSet) {
         this.currentSet = currentSet;
+    }
+
+    public int getCurrentSet() {
+        return currentSet;
     }
 
 }
