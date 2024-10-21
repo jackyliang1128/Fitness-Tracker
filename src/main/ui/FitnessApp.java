@@ -292,7 +292,8 @@ public class FitnessApp {
 
     }
 
-    // EFFECTS: get a summary of the fitness plan stats, including total time spent and total weight lifted
+    // EFFECTS: get a summary of the fitness plan stats, including total time spent
+    // and total weight lifted
     private void doSummary() {
         int totalWeight = currFitnessPlan.calculateTotalVolume();
         double totalTime = currFitnessPlan.getDuration();

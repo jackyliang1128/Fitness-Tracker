@@ -29,3 +29,6 @@ As a consistent "gym-goer", I enjoy participating in fitness activities that imp
 - As a user, I want to be able to view a list of exercises I will have to do for a fitness session
 - As a user, I want to be able to see how many hours I have spent on my fitness session
 - As a user, I want to be able to see what exercise are suggested to me considering the type I want
+
+- As a user, I want to be able to save my workout plans with exercises to a file when I quit (if I so choose)
+- As a user, I want to be able to load already created workout plans from a file when I start the application(if I so choose)
