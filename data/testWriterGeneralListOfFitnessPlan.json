@@ -1,37 +1,36 @@
 {
-    "fitnessplan1": [
+    "fitnessplans": [
         {
-            "name": "wednesday workout routine",
-            "duration": 0,
-            "exercises": [
+            "fitnessplan1": [
                 {
-                    "name": "incline dumbbell press",
-                    "type": "CHEST",
-                    "weight": 60,
-                    "set": 3,
-                    "rep": 8
+                    "name": "wednesday workout routine",
+                    "duration": 0,
+                    "exercises": [
+                        {
+                            "name": "incline dumbbell press",
+                            "type": "CHEST",
+                            "weight": 60,
+                            "set": 3,
+                            "rep": 8
+                        }
+                    ]
                 }
-
-            ]
-
-        }
-    ],
-
-    "fitnessplan2": [
-        {
-            "name": "Thursday workout routine",
-            "duration": 5,
-            "exercises": [
+            ],
+            "fitnessplan2": [
                 {
-                    "name": "bulgarian split squat",
-                    "type": "QUADRICEPS",
-                    "weight": 60,
-                    "set": 3,
-                    "rep": 8
+                    "name": "Thursday workout routine",
+                    "duration": 5,
+                    "exercises": [
+                        {
+                            "name": "bulgarian split squat",
+                            "type": "QUADRICEPS",
+                            "weight": 60,
+                            "set": 3,
+                            "rep": 8
+                        }
+                    ]
                 }
-
             ]
-
         }
     ]
 }
