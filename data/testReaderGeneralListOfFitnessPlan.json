@@ -1,48 +1,42 @@
 {
     "fitnessplans": [
         {
-            "fitnessplan1": [
+            "name": "Monday workout routine",
+            "duration": 10,
+            "exercises": [
                 {
-                    "name": "Monday workout routine",
-                    "duration": 10,
-                    "exercises": [
-                        {
-                            "name": "bench press",
-                            "type": "CHEST",
-                            "weight": 225,
-                            "set": 5,
-                            "rep": 5
-                        },
-                        {
-                            "name": "tricep pushdown",
-                            "type": "TRICEPS",
-                            "weight": 75,
-                            "set": 3,
-                            "rep": 10
-                        }
-                    ]
+                    "name": "bench press",
+                    "type": "CHEST",
+                    "weight": 225,
+                    "set": 5,
+                    "rep": 5
+                },
+                {
+                    "name": "tricep pushdown",
+                    "type": "TRICEPS",
+                    "weight": 75,
+                    "set": 3,
+                    "rep": 10
                 }
-            ],
-            "fitnessplan2": [
+            ]
+        },
+        {
+            "name": "Tuesday workout routine",
+            "duration": 20,
+            "exercises": [
                 {
-                    "name": "Tuesday workout routine",
-                    "duration": 20,
-                    "exercises": [
-                        {
-                            "name": "lat pulldowns",
-                            "type": "BACK",
-                            "weight": 140,
-                            "set": 3,
-                            "rep": 8
-                        },
-                        {
-                            "name": "hammer curls",
-                            "type": "BICEPS",
-                            "weight": 35,
-                            "set": 3,
-                            "rep": 10
-                        }
-                    ]
+                    "name": "lat pulldowns",
+                    "type": "BACK",
+                    "weight": 140,
+                    "set": 3,
+                    "rep": 8
+                },
+                {
+                    "name": "hammer curls",
+                    "type": "BICEPS",
+                    "weight": 35,
+                    "set": 3,
+                    "rep": 10
                 }
             ]
         }
