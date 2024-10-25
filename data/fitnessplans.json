@@ -1,0 +1,18 @@
+{"fitnessplans": [
+    {
+        "duration": 0,
+        "exercises": [{
+            "set": 5,
+            "name": "bench",
+            "weight": 225,
+            "type": "CHEST",
+            "rep": 5
+        }],
+        "name": "monday"
+    },
+    {
+        "duration": 0,
+        "exercises": [],
+        "name": "tuesday"
+    }
+]}

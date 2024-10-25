@@ -1,14 +1,12 @@
-{
-    "fitnessplans": [
-        {
-            "name": "Monday workout routine",
-            "duration": 0,
-            "exercises": []
-        },
-        {
-            "name": "Tuesday workout routine",
-            "duration": 0,
-            "exercises": []
-        }
-    ]
-}
+{"fitnessplans": [
+    {
+        "duration": 0,
+        "exercises": [],
+        "name": "Monday workout routine"
+    },
+    {
+        "duration": 0,
+        "exercises": [],
+        "name": "Tuesday workout routine"
+    }
+]}
