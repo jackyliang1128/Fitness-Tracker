@@ -1,8 +1,12 @@
 package ui;
 
 import model.*;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
 import java.util.Scanner;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +17,19 @@ public class FitnessApp {
     private FitnessPlan currFitnessPlan;
     private Exercise currExercise;
 
+    private static final String JSON_STORE = "./data/fitnessplans.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+
+
+
     // EFFECTS: runs the application
-    public FitnessApp() {
+    public FitnessApp() throws FileNotFoundException{
         fitnessLog = new ArrayList<>();
+
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
+
         runFitness();
     }
 
@@ -52,6 +66,10 @@ public class FitnessApp {
             createFitnessPlan();
         } else if (command.equals("m")) {
             displayChoosePlanMenu();
+        } else if (command.equals("s")) {
+            saveAllFitnessPlan();
+        } else if (command.equals("l")) {
+            loadAllFitnessPlan();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -63,6 +81,8 @@ public class FitnessApp {
         System.out.println("\nPlease select from the following options:");
         System.out.println("\tc -> create a new fitness plan");
         System.out.println("\tm -> go to an existing fitness plan");
+        System.out.println("\ts -> save all fitness plans to file");
+        System.out.println("\tl -> load all fitness plans from file");
         System.out.println("\tq -> quit the application");
 
     }
@@ -301,6 +321,29 @@ public class FitnessApp {
         System.out.println(
                 "you have spent " + totalTime + " minutes at the gym, lifting " + totalWeight + " pounds in total!");
 
+    }
+
+     // EFFECTS: saves all fitness plan created to file
+     private void saveAllFitnessPlan() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(fitnessLog);
+            jsonWriter.close();
+            System.out.println("Saved all fitness plans to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads all fitness plan from file
+    private void loadAllFitnessPlan() {
+        try {
+            fitnessLog = jsonReader.read();
+            System.out.println("Loaded all fitness plans from " + JSON_STORE);
+        } catch (IOException e) {
+            System.out.println("Unable to read from file: " + JSON_STORE);
+        }
     }
 
 }
