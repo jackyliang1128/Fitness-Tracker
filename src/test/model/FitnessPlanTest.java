@@ -17,6 +17,7 @@ public class FitnessPlanTest {
     private List<Exercise> exerciseList;
 
     private Exercise e4;
+    private Exercise e5;
 
 
     @BeforeEach
@@ -35,6 +36,7 @@ public class FitnessPlanTest {
         testFitnessPlan.setWorkouts(exerciseList);
 
         e4 = new Exercise("Bicep Curls", MuscleRegion.BICEPS, 30, 4, 10);
+        e5 = new Exercise("Hammer Curls", MuscleRegion.BICEPS, 35, 4, 12);
 
     }
 
@@ -59,6 +61,9 @@ public class FitnessPlanTest {
     @Test
     void testAddExercise(){
         testFitnessPlan.addExercise(e4, 1);
+        assertEquals(e2, testFitnessPlan.getWorkouts().get(2));
+        testFitnessPlan.addExercise(e5, -1);
+        assertEquals(e5, testFitnessPlan.getWorkouts().get(4));
         assertEquals(e2, testFitnessPlan.getWorkouts().get(2));
 
     }
