@@ -19,7 +19,6 @@ public class FitnessPlanTest {
     private Exercise e4;
     private Exercise e5;
 
-
     @BeforeEach
     void runBefore() {
         testFitnessPlan = new FitnessPlan("Monday Workout");
@@ -59,7 +58,7 @@ public class FitnessPlanTest {
     }
 
     @Test
-    void testAddExercise(){
+    void testAddExercise() {
         testFitnessPlan.addExercise(e4, 1);
         assertEquals(e2, testFitnessPlan.getWorkouts().get(2));
         testFitnessPlan.addExercise(e5, -1);
@@ -69,7 +68,7 @@ public class FitnessPlanTest {
     }
 
     @Test
-    void testRemoveExercise(){
+    void testRemoveExercise() {
         testFitnessPlan.removeExercise(2);
         assertEquals(2, testFitnessPlan.getWorkouts().size());
 
@@ -85,19 +84,18 @@ public class FitnessPlanTest {
         e1.setCurrentSet(e1.getTargetSet());
 
         assertEquals(testExerciseList, testFitnessPlan.viewRemaningExercise());
-    
-        
+
     }
+
     @Test
-    void testIncrementTime(){
+    void testIncrementTime() {
         testFitnessPlan.incrementExerciseTime(20);
         assertEquals(20, testFitnessPlan.getDuration());
-    
+
     }
 
-
     @Test
-    void calculateTotalVolume(){
+    void calculateTotalVolume() {
         e1.doExercise();
         e1.doExercise();
         e1.doExercise();
@@ -105,7 +103,6 @@ public class FitnessPlanTest {
         e1.doExercise();
 
         assertEquals(5625, testFitnessPlan.calculateTotalVolume());
-        
 
     }
 

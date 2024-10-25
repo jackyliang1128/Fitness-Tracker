@@ -32,7 +32,6 @@ public class ExerciseTest {
         assertEquals(185, testExercise.getTargetWeight());
         assertEquals(7, testExercise.getTargetSet());
         assertEquals(4, testExercise.getTargetRepetition());
-        
 
     }
 
@@ -81,7 +80,7 @@ public class ExerciseTest {
     }
 
     @Test
-    void testChangingCurrentSet(){
+    void testChangingCurrentSet() {
         assertEquals(0, testExercise.getCurrentSet());
         testExercise.setCurrentSet(21);
         assertEquals(21, testExercise.getCurrentSet());
