@@ -43,7 +43,7 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
-    // MODIFIES: FitnessApp maybe
+    // MODIFIES: FitnessApp
     // EFFECTS: parses all the fitness plans from JSON object and returns it;
     private List<FitnessPlan> parseFitnessPlan(JSONObject jsonObject) {
         List<FitnessPlan> fpList = new ArrayList<>();
