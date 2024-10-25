@@ -1,11 +1,17 @@
 package model;
 
 import java.util.List;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import persistence.Writable;
+
 import java.util.ArrayList;
 
 // Represents a fitness plan that has a name and contains a list of exercises for the session
 // to accomplish in the order that it is added
-public class FitnessPlan {
+public class FitnessPlan implements Writable {
 
     private List<Exercise> workouts;
 
@@ -42,7 +48,11 @@ public class FitnessPlan {
      * EFFECTS: add an exercise to the desired location in the fitness plan
      */
     public void addExercise(Exercise e, int location) {
-        workouts.add(location, e);
+        if (location == -1) {
+            workouts.add(e);
+        } else {
+            workouts.add(location, e);
+        }
     }
 
     /*
@@ -119,5 +129,26 @@ public class FitnessPlan {
     public double getDuration() {
         return duration;
     }
+
+    // EFFECTS: return this as a JSON object
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("name", planName);
+        json.put("duration", duration);
+        json.put("exercises", ExercisestoJson());
+        return json;
+    }
+
+    // EFFECTS: return exercises in this fitnessplan as a JSON array
+    public JSONArray ExercisestoJson() {
+        JSONArray jsonArray = new JSONArray();
+
+        for (Exercise e : workouts) {
+            jsonArray.put(e.toJson());
+        }
+        return jsonArray;
+    }
+
 
 }
