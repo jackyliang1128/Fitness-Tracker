@@ -21,10 +21,8 @@ public class FitnessApp {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
-
-
     // EFFECTS: runs the application
-    public FitnessApp() throws FileNotFoundException{
+    public FitnessApp() throws FileNotFoundException {
         fitnessLog = new ArrayList<>();
 
         jsonWriter = new JsonWriter(JSON_STORE);
@@ -323,8 +321,8 @@ public class FitnessApp {
 
     }
 
-     // EFFECTS: saves all fitness plan created to file
-     private void saveAllFitnessPlan() {
+    // EFFECTS: saves all fitness plan created to file
+    private void saveAllFitnessPlan() {
         try {
             jsonWriter.open();
             jsonWriter.write(fitnessLog);

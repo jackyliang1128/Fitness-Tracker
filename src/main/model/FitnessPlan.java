@@ -136,12 +136,12 @@ public class FitnessPlan implements Writable {
         JSONObject json = new JSONObject();
         json.put("name", planName);
         json.put("duration", duration);
-        json.put("exercises", ExercisestoJson());
+        json.put("exercises", exercisesToJson());
         return json;
     }
 
     // EFFECTS: return exercises in this fitnessplan as a JSON array
-    public JSONArray ExercisestoJson() {
+    public JSONArray exercisesToJson() {
         JSONArray jsonArray = new JSONArray();
 
         for (Exercise e : workouts) {
@@ -149,6 +149,5 @@ public class FitnessPlan implements Writable {
         }
         return jsonArray;
     }
-
 
 }

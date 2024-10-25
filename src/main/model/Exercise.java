@@ -11,7 +11,7 @@ import java.util.ArrayList;
 // Represents an exercise having a name, type, weight, set, and repetition
 // Exercises are 'completed' when all sets have been accomplished
 //
-public class Exercise implements Writable{
+public class Exercise implements Writable {
 
     private String name;
     private MuscleRegion type;

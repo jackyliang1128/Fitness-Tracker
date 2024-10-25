@@ -8,7 +8,7 @@ public class Main {
 
         // System.out.println("\nWelcome to the Fitness Tracker");
         // new FitnessApp();
-        
+
         try {
             System.out.println("\nWelcome to the Fitness Tracker");
             new FitnessApp();
