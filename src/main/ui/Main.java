@@ -9,12 +9,16 @@ public class Main {
         // System.out.println("\nWelcome to the Fitness Tracker");
         // new FitnessApp();
 
+
+        // uncomment to run console version from phase 2
         try {
             System.out.println("\nWelcome to the Fitness Tracker");
             new FitnessApp();
         } catch (FileNotFoundException e) {
             System.out.println("Unable to run application: file not found");
         }
+
+        
 
     }
 }
