@@ -32,8 +32,10 @@ public class FitnessAppGUI extends JFrame {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+    private JPanel mainPanel;
     private JPanel displayPanel;
     private JPanel plansPanel;
+    private JPanel modifyPanel;
 
     /**
      * Constructor sets up button panel and display area.
@@ -49,6 +51,19 @@ public class FitnessAppGUI extends JFrame {
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        createMainPanel();
+        createModifyPanel();
+
+        getContentPane().add(mainPanel, BorderLayout.CENTER);
+
+        setVisible(true);
+        loadImages();
+    }
+
+    private void createMainPanel() {
+        mainPanel = new JPanel();
+        mainPanel.setLayout(new BorderLayout());
+
         // Create the left panel with buttons
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new GridLayout(0, 1));
@@ -56,24 +71,80 @@ public class FitnessAppGUI extends JFrame {
         addButton(buttonPanel, "Save Fitness Plans");
         addButton(buttonPanel, "Load Fitness Plans");
 
-        // Create the right panel for display
-        displayPanel = new JPanel();
-        displayPanel.setLayout(new BorderLayout());
-
         // Create the right panel with fitness plan buttons
-
         plansPanel = new JPanel();
-        plansPanel.setLayout(new GridLayout(1, 1));
+        plansPanel.setLayout(new GridLayout(0, 1));
 
         // Create the split pane and add the panels
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, buttonPanel, plansPanel);
         splitPane.setDividerLocation(WIDTH / 4);
 
-        // Add the split pane to the content pane
-        getContentPane().add(splitPane, BorderLayout.CENTER);
+        mainPanel.add(splitPane, BorderLayout.CENTER);
 
-        setVisible(true);
-        loadImages();
+    }
+
+    private void createModifyPanel() {
+        modifyPanel = new JPanel();
+        modifyPanel.setLayout(new GridLayout(0, 1));
+
+        addModifyButton(modifyPanel, "Add Exercise");
+        addModifyButton(modifyPanel, "Remove Exercise");
+        addModifyButton(modifyPanel, "Modify Exercise");
+        addModifyButton(modifyPanel, "Add Time");
+        addModifyButton(modifyPanel, "Get Summary");
+        addModifyButton(modifyPanel, "Go Back To Main Menu");
+
+        JPanel displayPanel = new JPanel();
+        displayPanel.setLayout(new BorderLayout());
+
+        // Create the split pane and add the panels
+        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, modifyPanel, displayPanel);
+        splitPane.setDividerLocation(WIDTH / 4);
+
+        // Add the split pane to the content pane
+        // Add the split pane to the modify panel
+        modifyPanel = new JPanel(new BorderLayout());
+        modifyPanel.add(splitPane, BorderLayout.CENTER);
+
+    }
+
+    /**
+     * Adds a button to the given panel with the specified text.
+     *
+     * @param panel the panel to add the button to
+     * @param text  the text of the button
+     */
+    private void addModifyButton(JPanel panel, String text) {
+        JButton button = new JButton(text);
+        button.addActionListener(new ModifyButtonClickListener());
+        panel.add(button);
+    }
+
+    private class ModifyButtonClickListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String command = e.getActionCommand();
+            switch (command) {
+                case "Add Exercise":
+                    // Implement adding exercise
+                    break;
+                case "Remove Exercise":
+                    // Implement removing exercise
+                    break;
+                case "Modify Exercise":
+                    // Implement modifying exercise
+                    break;
+                case "Add Time":
+                    // Implement adding time
+                    break;
+                case "Get Summary":
+                    // Implement getting summary
+                    break;
+                case "Go Back To Main Menu":
+                    switchToMainPanel();
+                    break;
+            }
+        }
     }
 
     /**
@@ -122,17 +193,17 @@ public class FitnessAppGUI extends JFrame {
 
     private class PlanButtonClickListener implements ActionListener {
         private FitnessPlan plan;
-    
+
         public PlanButtonClickListener(FitnessPlan plan) {
             this.plan = plan;
         }
-    
+
         @Override
         public void actionPerformed(ActionEvent e) {
             currFitnessPlan = plan;
+            switchToModifyPanel();
         }
     }
-    
 
     // EFFECTS: saves all fitness plan created to file
     private void saveAllFitnessPlan() {
@@ -188,6 +259,20 @@ public class FitnessAppGUI extends JFrame {
 
         plansPanel.revalidate();
         plansPanel.repaint();
+    }
+
+    private void switchToModifyPanel() {
+        getContentPane().removeAll();
+        getContentPane().add(modifyPanel);
+        revalidate();
+        repaint();
+    }
+
+    private void switchToMainPanel() {
+        getContentPane().removeAll();
+        getContentPane().add(mainPanel);
+        revalidate();
+        repaint();
     }
 
     private void loadImages() {
