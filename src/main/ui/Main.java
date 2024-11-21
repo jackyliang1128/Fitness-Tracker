@@ -6,17 +6,17 @@ import java.io.FileNotFoundException;
 public class Main {
     public static void main(String[] args) {
 
-        // System.out.println("\nWelcome to the Fitness Tracker");
-        // new FitnessApp();
-
 
         // uncomment to run console version from phase 2
-        try {
-            System.out.println("\nWelcome to the Fitness Tracker");
-            new FitnessApp();
-        } catch (FileNotFoundException e) {
-            System.out.println("Unable to run application: file not found");
-        }
+        // try {
+        //     System.out.println("\nWelcome to the Fitness Tracker");
+        //     new FitnessApp();
+        // } catch (FileNotFoundException e) {
+        //     System.out.println("Unable to run application: file not found");
+        // }
+
+        // uncomment to run GUI version from phase 3
+        new FitnessAppGUI();
 
         
 
