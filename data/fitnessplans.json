@@ -1,42 +1,17 @@
-{
-    "fitnessplans": [
-        {
-            "duration": 0,
-            "exercises": [
-                {
-                    "set": 5,
-                    "name": "bench",
-                    "weight": 225,
-                    "type": "CHEST",
-                    "rep": 5
-                }
-            ],
-            "name": "monday"
-        },
-        {
-            "duration": 0,
-            "exercises": [
-                {
-                    "set": 3,
-                    "name": "shoulder press",
-                    "weight": 65,
-                    "type": "SHOULDER",
-                    "rep": 8
-                },
-                {
-                    "set": 3,
-                    "name": "leg extensions",
-                    "weight": 160,
-                    "type": "QUADRICEPS",
-                    "rep": 10
-                }
-            ],
-            "name": "tuesday"
-        },
-        {
-            "duration": 0,
-            "exercises": [],
-            "name": "wednesday"
-        }
-    ]
-}
+{"fitnessplans": [
+    {
+        "duration": 0,
+        "exercises": [],
+        "name": "test"
+    },
+    {
+        "duration": 0,
+        "exercises": [],
+        "name": "test"
+    },
+    {
+        "duration": 0,
+        "exercises": [],
+        "name": "testtt"
+    }
+]}
