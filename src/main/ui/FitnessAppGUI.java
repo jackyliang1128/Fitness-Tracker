@@ -82,9 +82,9 @@ public class FitnessAppGUI extends JFrame {
 
     private class StartUpAction extends MouseAdapter {
         @Override
-		public void mouseClicked(MouseEvent e) {
-			switchToMainPanel();
-		}
+        public void mouseClicked(MouseEvent e) {
+            switchToMainPanel();
+        }
     }
 
     // MODIFIES: this
@@ -280,7 +280,8 @@ public class FitnessAppGUI extends JFrame {
             jsonWriter.open();
             jsonWriter.write(fitnessLog);
             jsonWriter.close();
-            JOptionPane.showMessageDialog(this, "Save completed", "Save", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Save completed", "Save", JOptionPane.INFORMATION_MESSAGE,
+                    saveLoadImage);
         } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(this, "Unable to write to file: " + JSON_STORE, "Save Error",
                     JOptionPane.ERROR_MESSAGE);
@@ -292,7 +293,8 @@ public class FitnessAppGUI extends JFrame {
     private void loadAllFitnessPlan() {
         try {
             fitnessLog = jsonReader.read();
-            JOptionPane.showMessageDialog(this, "Load completed", "Load", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Load completed", "Load", JOptionPane.INFORMATION_MESSAGE,
+                    saveLoadImage);
         } catch (IOException e) {
             JOptionPane.showMessageDialog(this, "Unable to read from file: " + JSON_STORE, "Load Error",
                     JOptionPane.ERROR_MESSAGE);
@@ -348,6 +350,8 @@ public class FitnessAppGUI extends JFrame {
         currFitnessPlan.addExercise(currExercise, location);
 
         updateDisplayPanel();
+        JOptionPane.showMessageDialog(this, "Sucessfully Added", "Add Exercise", JOptionPane.INFORMATION_MESSAGE,
+                addExerciseImage);
 
     }
 
@@ -385,6 +389,8 @@ public class FitnessAppGUI extends JFrame {
         currFitnessPlan.removeExercise(i);
 
         updateDisplayPanel();
+        JOptionPane.showMessageDialog(this, "Sucessfully Removed", "Remove Exercise", JOptionPane.INFORMATION_MESSAGE,
+                removeExerciseImage);
 
     }
 
