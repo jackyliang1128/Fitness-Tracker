@@ -4,8 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-// import java.awt.event.MouseAdapter;
-// import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 // import java.lang.reflect.Array;
@@ -19,8 +19,9 @@ import persistence.JsonWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-// Referenced from the AlarmSystem
+// Referenced from the AlarmSystem and C3-LectureLabStarter (TrafficLight)
 // https://github.students.cs.ubc.ca/CPSC210/AlarmSystem.git
+// https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabStarter.git
 public class FitnessAppGUI extends JFrame {
 
     private static final int WIDTH = 800;
@@ -33,13 +34,19 @@ public class FitnessAppGUI extends JFrame {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+    private JPanel startUpPanel;
     private JPanel mainPanel;
     private JPanel displayPanel;
     private JPanel plansPanel;
     private JPanel modifyPanel;
 
+    private ImageIcon startUpImage;
+    private ImageIcon addExerciseImage;
+    private ImageIcon removeExerciseImage;
+    private ImageIcon saveLoadImage;
+
     /**
-     *  sets up button panel and display area.
+     * sets up button panel and display area.
      */
     public FitnessAppGUI() {
 
@@ -52,13 +59,32 @@ public class FitnessAppGUI extends JFrame {
         setSize(WIDTH, HEIGHT);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
+        loadImages();
+        createStartUpPanel();
         createMainPanel();
         createModifyPanel();
 
-        getContentPane().add(mainPanel, BorderLayout.CENTER);
+        getContentPane().add(startUpPanel, BorderLayout.CENTER);
 
         setVisible(true);
-        loadImages();
+    }
+
+    // MODIFIES: this
+    // EFFECTS: display the start up image for the app
+    private void createStartUpPanel() {
+        startUpPanel = new JPanel(new BorderLayout());
+        JLabel imageLabel = new JLabel(startUpImage);
+
+        imageLabel.addMouseListener(new StartUpAction());
+
+        startUpPanel.add(imageLabel, BorderLayout.CENTER);
+    }
+
+    private class StartUpAction extends MouseAdapter {
+        @Override
+		public void mouseClicked(MouseEvent e) {
+			switchToMainPanel();
+		}
     }
 
     // MODIFIES: this
@@ -147,7 +173,7 @@ public class FitnessAppGUI extends JFrame {
      *
      * @param panel the panel to add the button to
      * @param text  the text of the button
-     * EFFECTS: allows user to interact with the edit menu with buttons
+     *              EFFECTS: allows user to interact with the edit menu with buttons
      */
     private void addModifyButton(JPanel panel, String text) {
         JButton button = new JButton(text);
@@ -190,7 +216,7 @@ public class FitnessAppGUI extends JFrame {
      *
      * @param panel the panel to add the button to
      * @param text  the text of the button
-     * EFFECTS: allows user to interact with the main menu with buttons
+     *              EFFECTS: allows user to interact with the main menu with buttons
      * 
      */
     private void addButton(JPanel panel, String text) {
@@ -414,7 +440,18 @@ public class FitnessAppGUI extends JFrame {
         repaint();
     }
 
+    // MODIFIES: this
+    // EFFECTS: load all images
     private void loadImages() {
+        String sep = System.getProperty("file.separator");
+        startUpImage = new ImageIcon(System.getProperty("user.dir") + sep
+                + "images" + sep + "startup.jpg");
+        addExerciseImage = new ImageIcon(System.getProperty("user.dir") + sep
+                + "images" + sep + "addexercise.png");
+        removeExerciseImage = new ImageIcon(System.getProperty("user.dir") + sep
+                + "images" + sep + "removeexercise.png");
+        saveLoadImage = new ImageIcon(System.getProperty("user.dir") + sep
+                + "images" + sep + "saveload.jpg");
 
     }
 
