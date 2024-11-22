@@ -10,13 +10,6 @@
                 "rep": 5
             },
             {
-                "set": 34,
-                "name": "shoulder press",
-                "weight": 34,
-                "type": "TRICEPS",
-                "rep": 34
-            },
-            {
                 "set": 123,
                 "name": "test",
                 "weight": 123,
@@ -28,7 +21,18 @@
     },
     {
         "duration": 0,
-        "exercises": [],
+        "exercises": [{
+            "set": 5,
+            "name": "tricep push down",
+            "weight": 225,
+            "type": "TRICEPS",
+            "rep": 5
+        }],
         "name": "tuesday"
+    },
+    {
+        "duration": 0,
+        "exercises": [],
+        "name": "wednesday"
     }
 ]}
