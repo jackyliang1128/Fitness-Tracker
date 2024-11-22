@@ -74,6 +74,8 @@ public class FitnessAppGUI extends JFrame {
         // Create the right panel with fitness plan buttons
         plansPanel = new JPanel();
         plansPanel.setLayout(new GridLayout(0, 1));
+        JLabel descriptionLabel = new JLabel("Select a fitness plan from this area", SwingConstants.CENTER);
+        plansPanel.add(descriptionLabel, BorderLayout.NORTH);
 
         // Create the split pane and add the panels
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, buttonPanel, plansPanel);
@@ -126,10 +128,10 @@ public class FitnessAppGUI extends JFrame {
             String command = e.getActionCommand();
             switch (command) {
                 case "Add Exercise":
-                    // Implement adding exercise
+                    doAddExerciseGUI();
                     break;
                 case "Remove Exercise":
-                    // Implement removing exercise
+                    doRemoveExerciseGUI();
                     break;
                 case "Modify Exercise":
                     // Implement modifying exercise
@@ -260,6 +262,66 @@ public class FitnessAppGUI extends JFrame {
         plansPanel.revalidate();
         plansPanel.repaint();
     }
+
+    // MODIFIES: this, FitnessPlan
+    // EFFECTS: add an exercise to the selected fitness plan
+    private void doAddExerciseGUI() {
+        Exercise currExercise;
+
+        String name = JOptionPane.showInputDialog("Enter name of Exercise");
+        MuscleRegion type = selectMuscleGUI();
+        int weight = Integer.parseInt(JOptionPane.showInputDialog("Enter weight (in Lbs)"));
+        int set = Integer.parseInt(JOptionPane.showInputDialog("Enter number of sets"));
+        int rep = Integer.parseInt(JOptionPane.showInputDialog("Enter number of repetitions"));
+        int location = Integer
+                .parseInt(JOptionPane.showInputDialog("Enter the order of the exercise (-1 to add to the end)"));
+
+        currExercise = new Exercise(name, type, weight, set, rep);
+
+        currFitnessPlan.addExercise(currExercise, location);
+
+    }
+
+    // MODIFIES: this
+    // EFFECTS: process user input on selecting the type of exercise
+    private MuscleRegion selectMuscleGUI() {
+        MuscleRegion selectedMuscle = null;
+        MuscleRegion[] allMuscle = MuscleRegion.values();
+
+        JComboBox<MuscleRegion> muscleComboBox = new JComboBox<>(allMuscle);
+        int option = JOptionPane.showOptionDialog(
+                this,
+                muscleComboBox,
+                "Select Muscle Region",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                null,
+                null);
+
+        selectedMuscle = muscleComboBox.getItemAt(option);
+
+        return selectedMuscle;
+    }
+
+    // MODIFIES: this, FitnessPlan
+    // EFFECTS: remove an exercise from the selected fitnessplan
+    private void doRemoveExerciseGUI() {
+        List<Exercise> currWorkouts = currFitnessPlan.getWorkouts();
+        int counter = 0;
+
+        for (Exercise e : currWorkouts) {
+            System.out.println(
+                    "\t" + counter + " -> " + e.getName() + " " + e.getTargetWeight() + " lbs " + e.getTargetSet()
+                            + " sets " + e.getTargetRepetition() + " reps");
+            counter++;
+        }
+
+        System.out.println("exercise to remove?");
+        currFitnessPlan.removeExercise(input.nextInt());
+
+    }
+
 
     private void switchToModifyPanel() {
         getContentPane().removeAll();

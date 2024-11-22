@@ -1,17 +1,11 @@
-{"fitnessplans": [
-    {
-        "duration": 0,
-        "exercises": [],
-        "name": "test"
-    },
-    {
-        "duration": 0,
-        "exercises": [],
-        "name": "test"
-    },
-    {
-        "duration": 0,
-        "exercises": [],
-        "name": "testtt"
-    }
-]}
+{"fitnessplans": [{
+    "duration": 0,
+    "exercises": [{
+        "set": 5,
+        "name": "muscle",
+        "weight": 21,
+        "type": "CHEST",
+        "rep": 21
+    }],
+    "name": "monday"
+}]}
