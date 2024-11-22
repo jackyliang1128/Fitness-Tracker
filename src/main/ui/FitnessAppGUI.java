@@ -4,11 +4,11 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+// import java.awt.event.MouseAdapter;
+// import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.lang.reflect.Array;
+// import java.lang.reflect.Array;
 
 import javax.swing.*;
 
@@ -39,7 +39,7 @@ public class FitnessAppGUI extends JFrame {
     private JPanel modifyPanel;
 
     /**
-     * Constructor sets up button panel and display area.
+     *  sets up button panel and display area.
      */
     public FitnessAppGUI() {
 
@@ -61,6 +61,8 @@ public class FitnessAppGUI extends JFrame {
         loadImages();
     }
 
+    // MODIFIES: this
+    // EFFECTS: create and display the main menu
     private void createMainPanel() {
         mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
@@ -86,6 +88,8 @@ public class FitnessAppGUI extends JFrame {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: modify and display the edit menu after selecting a fitness plan
     private void createModifyPanel() {
         modifyPanel = new JPanel();
         modifyPanel.setLayout(new GridLayout(0, 1));
@@ -111,6 +115,8 @@ public class FitnessAppGUI extends JFrame {
 
     }
 
+    // MODIFIES: this
+    // EFFECTS: update the view of the display panel in the edit menu
     private void updateDisplayPanel() {
         displayPanel.removeAll();
         String[] columnNames = { "Index", "Name", "Type", "Weight (Lbs)", "Sets", "Reps" };
@@ -141,6 +147,7 @@ public class FitnessAppGUI extends JFrame {
      *
      * @param panel the panel to add the button to
      * @param text  the text of the button
+     * EFFECTS: allows user to interact with the edit menu with buttons
      */
     private void addModifyButton(JPanel panel, String text) {
         JButton button = new JButton(text);
@@ -148,6 +155,9 @@ public class FitnessAppGUI extends JFrame {
         panel.add(button);
     }
 
+    /**
+     * EFFECTS: Action listener for button clicks in the edit menu.
+     */
     private class ModifyButtonClickListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -180,6 +190,8 @@ public class FitnessAppGUI extends JFrame {
      *
      * @param panel the panel to add the button to
      * @param text  the text of the button
+     * EFFECTS: allows user to interact with the main menu with buttons
+     * 
      */
     private void addButton(JPanel panel, String text) {
         JButton button = new JButton(text);
@@ -199,7 +211,7 @@ public class FitnessAppGUI extends JFrame {
     // }
 
     /**
-     * Action listener for button clicks.
+     * EFFECTS: Action listener for button clicks in the main menu.
      */
     private class ButtonClickListener implements ActionListener {
         @Override
@@ -219,6 +231,9 @@ public class FitnessAppGUI extends JFrame {
         }
     }
 
+    /*
+     * EFFECTS: Action listener for button clicks in the right panel of main menu.
+     */
     private class PlanButtonClickListener implements ActionListener {
         private FitnessPlan plan;
 
@@ -379,6 +394,9 @@ public class FitnessAppGUI extends JFrame {
 
     }
 
+    // REQUIRES: currently not in the edit menu
+    // MODIFIES: this
+    // EFFECTS: switches to the edit menu
     private void switchToModifyPanel() {
         getContentPane().removeAll();
         getContentPane().add(modifyPanel);
@@ -386,6 +404,9 @@ public class FitnessAppGUI extends JFrame {
         repaint();
     }
 
+    // REQUIRES: currently not in the main menu
+    // MODIFIES: this
+    // EFFECTS: switches to the edit menu
     private void switchToMainPanel() {
         getContentPane().removeAll();
         getContentPane().add(mainPanel);
