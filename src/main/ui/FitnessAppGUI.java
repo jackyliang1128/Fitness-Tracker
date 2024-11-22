@@ -8,6 +8,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Array;
 
 import javax.swing.*;
 
@@ -96,7 +97,7 @@ public class FitnessAppGUI extends JFrame {
         addModifyButton(modifyPanel, "Get Summary");
         addModifyButton(modifyPanel, "Go Back To Main Menu");
 
-        JPanel displayPanel = new JPanel();
+        displayPanel = new JPanel();
         displayPanel.setLayout(new BorderLayout());
 
         // Create the split pane and add the panels
@@ -107,6 +108,31 @@ public class FitnessAppGUI extends JFrame {
         // Add the split pane to the modify panel
         modifyPanel = new JPanel(new BorderLayout());
         modifyPanel.add(splitPane, BorderLayout.CENTER);
+
+    }
+
+    private void updateDisplayPanel() {
+        displayPanel.removeAll();
+        String[] columnNames = { "Index", "Name", "Type", "Weight (Lbs)", "Sets", "Reps" };
+        List<Exercise> exercises = currFitnessPlan.getWorkouts();
+
+        Object[][] data = new Object[exercises.size()][6];
+        for (int i = 0; i < exercises.size(); i++) {
+            Exercise e = exercises.get(i);
+            data[i][0] = i; // Index
+            data[i][1] = e.getName(); // Name
+            data[i][2] = e.getType(); // MuscleRegion
+            data[i][3] = e.getTargetWeight(); // Weight
+            data[i][4] = e.getTargetSet(); // Sets
+            data[i][5] = e.getTargetRepetition(); // Reps
+        }
+
+        JTable table = new JTable(data, columnNames);
+        JScrollPane scrollPane = new JScrollPane(table);
+        displayPanel.add(scrollPane, BorderLayout.CENTER);
+
+        displayPanel.revalidate();
+        displayPanel.repaint();
 
     }
 
@@ -280,6 +306,8 @@ public class FitnessAppGUI extends JFrame {
 
         currFitnessPlan.addExercise(currExercise, location);
 
+        updateDisplayPanel();
+
     }
 
     // MODIFIES: this
@@ -315,6 +343,8 @@ public class FitnessAppGUI extends JFrame {
         int i = currWorkoutsOption.getSelectedIndex();
         currFitnessPlan.removeExercise(i);
 
+        updateDisplayPanel();
+
     }
 
     // MODIFIES: this, FitnessPlan, Exercise
@@ -335,6 +365,7 @@ public class FitnessAppGUI extends JFrame {
         currExercise = currWorkouts.get(i);
 
         changeExerciseContent();
+        updateDisplayPanel();
     }
 
     // MODIFIES: this, FitnessPlan, Exercise
@@ -345,7 +376,7 @@ public class FitnessAppGUI extends JFrame {
         int rep = Integer.parseInt(JOptionPane.showInputDialog("Enter target repetitions"));
 
         currExercise.addExerciseAmount(weight, addSet, rep);
-        
+
     }
 
     private void switchToModifyPanel() {
