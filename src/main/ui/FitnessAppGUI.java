@@ -271,6 +271,7 @@ public class FitnessAppGUI extends JFrame {
         public void actionPerformed(ActionEvent e) {
             currFitnessPlan = plan;
             switchToModifyPanel();
+            updateDisplayPanel();
         }
     }
 
