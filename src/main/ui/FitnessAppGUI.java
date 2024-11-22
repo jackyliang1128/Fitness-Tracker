@@ -134,7 +134,7 @@ public class FitnessAppGUI extends JFrame {
                     doRemoveExerciseGUI();
                     break;
                 case "Modify Exercise":
-                    // Implement modifying exercise
+                    doModifyExerciseGUI();
                     break;
                 case "Add Time":
                     // Implement adding time
@@ -315,6 +315,37 @@ public class FitnessAppGUI extends JFrame {
         int i = currWorkoutsOption.getSelectedIndex();
         currFitnessPlan.removeExercise(i);
 
+    }
+
+    // MODIFIES: this, FitnessPlan, Exercise
+    // EFFECTS: modify an exercise from the selected fitnessplan
+    private void doModifyExerciseGUI() {
+        List<Exercise> currWorkouts = currFitnessPlan.getWorkouts();
+        JComboBox<String> currWorkoutsOption = new JComboBox<>();
+
+        for (Exercise e : currWorkouts) {
+            currWorkoutsOption.addItem(e.getName());
+        }
+
+        JOptionPane.showOptionDialog(this, currWorkoutsOption, "Select exercise to remove",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, null, null);
+
+        int i = currWorkoutsOption.getSelectedIndex();
+        currExercise = currWorkouts.get(i);
+
+        changeExerciseContent();
+    }
+
+    // MODIFIES: this, FitnessPlan, Exercise
+    // EFFECTS: increase the difficulty of the exercise
+    private void changeExerciseContent() {
+        int weight = Integer.parseInt(JOptionPane.showInputDialog("Enter weight change to (in Lbs)"));
+        int addSet = Integer.parseInt(JOptionPane.showInputDialog("Enter sets to add"));
+        int rep = Integer.parseInt(JOptionPane.showInputDialog("Enter target repetitions"));
+
+        currExercise.addExerciseAmount(weight, addSet, rep);
+        
     }
 
     private void switchToModifyPanel() {
