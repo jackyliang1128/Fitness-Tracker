@@ -289,17 +289,11 @@ public class FitnessAppGUI extends JFrame {
         MuscleRegion[] allMuscle = MuscleRegion.values();
 
         JComboBox<MuscleRegion> muscleComboBox = new JComboBox<>(allMuscle);
-        int option = JOptionPane.showOptionDialog(
-                this,
-                muscleComboBox,
-                "Select Muscle Region",
-                JOptionPane.OK_CANCEL_OPTION,
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                null,
-                null);
+        JOptionPane.showOptionDialog(this, muscleComboBox, "Select Muscle Region", JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, null, null);
 
-        selectedMuscle = muscleComboBox.getItemAt(option);
+        int i = muscleComboBox.getSelectedIndex();
+        selectedMuscle = muscleComboBox.getItemAt(i);
 
         return selectedMuscle;
     }
@@ -308,20 +302,20 @@ public class FitnessAppGUI extends JFrame {
     // EFFECTS: remove an exercise from the selected fitnessplan
     private void doRemoveExerciseGUI() {
         List<Exercise> currWorkouts = currFitnessPlan.getWorkouts();
-        int counter = 0;
+        JComboBox<String> currWorkoutsOption = new JComboBox<>();
 
         for (Exercise e : currWorkouts) {
-            System.out.println(
-                    "\t" + counter + " -> " + e.getName() + " " + e.getTargetWeight() + " lbs " + e.getTargetSet()
-                            + " sets " + e.getTargetRepetition() + " reps");
-            counter++;
+            currWorkoutsOption.addItem(e.getName());
         }
 
-        System.out.println("exercise to remove?");
-        currFitnessPlan.removeExercise(input.nextInt());
+        JOptionPane.showOptionDialog(this, currWorkoutsOption, "Select exercise to remove",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE, null, null, null);
+
+        int i = currWorkoutsOption.getSelectedIndex();
+        currFitnessPlan.removeExercise(i);
 
     }
-
 
     private void switchToModifyPanel() {
         getContentPane().removeAll();
