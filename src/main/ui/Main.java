@@ -1,6 +1,6 @@
 package ui;
 
-import java.io.FileNotFoundException;
+// import java.io.FileNotFoundException;
 
 // the main code and runs the FitnessApp
 public class Main {

@@ -24,8 +24,8 @@ import java.util.List;
 // https://github.students.cs.ubc.ca/CPSC210/C3-LectureLabStarter.git
 public class FitnessAppGUI extends JFrame {
 
-    private static final int WIDTH = 800;
-    private static final int HEIGHT = 600;
+    private static final int WIDTH = 1200;
+    private static final int HEIGHT = 800;
     private static final String JSON_STORE = "./data/fitnessplans.json";
 
     private List<FitnessPlan> fitnessLog;
