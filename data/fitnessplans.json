@@ -1,38 +1,18 @@
 {"fitnessplans": [
     {
         "duration": 0,
-        "exercises": [
-            {
-                "set": 5,
-                "name": "bench press",
-                "weight": 225,
-                "type": "CHEST",
-                "rep": 5
-            },
-            {
-                "set": 123,
-                "name": "test",
-                "weight": 123,
-                "type": "CHEST",
-                "rep": 123
-            }
-        ],
-        "name": "monday"
-    },
-    {
-        "duration": 0,
         "exercises": [{
-            "set": 5,
-            "name": "tricep push down",
-            "weight": 225,
-            "type": "TRICEPS",
-            "rep": 5
+            "set": 123,
+            "name": "bench",
+            "weight": 123,
+            "type": "CHEST",
+            "rep": 123
         }],
-        "name": "tuesday"
+        "name": "Monday"
     },
     {
         "duration": 0,
         "exercises": [],
-        "name": "wednesday"
+        "name": "Tuesday"
     }
 ]}
