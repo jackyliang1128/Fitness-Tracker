@@ -58,3 +58,28 @@ As a consistent "gym-goer", I enjoy participating in fitness activities that imp
 - You can load an existing state of my application by:
     1. clicking the button labelled "Go Back to Main Menu" if you are not there
     2. clicking the button labelled "Load Fitness Plans"
+
+**Phase 4: Task 2**
+Thu Nov 28 00:53:22 PST 2024
+Bench Press Exercise added!
+
+Thu Nov 28 00:53:39 PST 2024
+Shoulder Press Exercise added!
+
+Thu Nov 28 00:53:57 PST 2024
+Tricep Pushdown Exercise added!
+
+Thu Nov 28 00:54:11 PST 2024
+Bench Press exercise modified to 100.0 lbs, 5 sets, and 5 reps.
+
+Thu Nov 28 00:54:16 PST 2024
+Tricep Pushdown Exercise removed!
+
+Thu Nov 28 00:54:42 PST 2024
+Lateral Raise Exercise added!
+
+Thu Nov 28 00:54:54 PST 2024
+Lateral Raise exercise modified to 10.0 lbs, 7 sets, and 5 reps.
+
+Thu Nov 28 00:54:58 PST 2024
+Bench Press Exercise removed!

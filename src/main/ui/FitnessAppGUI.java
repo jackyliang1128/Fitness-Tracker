@@ -6,6 +6,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 // import java.lang.reflect.Array;
@@ -57,7 +60,9 @@ public class FitnessAppGUI extends JFrame {
 
         setTitle("Fitness App Tracker");
         setSize(WIDTH, HEIGHT);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        addWindowListener(new WindowOnClose());
+        setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
         loadImages();
         createStartUpPanel();
@@ -67,6 +72,18 @@ public class FitnessAppGUI extends JFrame {
         getContentPane().add(startUpPanel, BorderLayout.CENTER);
 
         setVisible(true);
+    }
+
+    // private class for printing event log when window close event detectged
+    private class WindowOnClose extends WindowAdapter {
+        @Override
+        public void windowClosing(WindowEvent e) {
+            EventLog el = EventLog.getInstance();
+            for (Event event : el) {
+                System.out.println(event.toString() + "\n");
+            }
+            System.exit(0);
+        }
     }
 
     // MODIFIES: this
@@ -461,5 +478,4 @@ public class FitnessAppGUI extends JFrame {
                 + "images" + sep + "saveload.jpg");
 
     }
-
 }

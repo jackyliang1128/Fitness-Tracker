@@ -53,6 +53,7 @@ public class FitnessPlan implements Writable {
         } else {
             workouts.add(location, e);
         }
+        EventLog.getInstance().logEvent(new Event(e.getName() + " Exercise added!"));
     }
 
     /*
@@ -61,6 +62,7 @@ public class FitnessPlan implements Writable {
      * EFFECTS: remove an existing exercise in the fitness plan
      */
     public void removeExercise(int location) {
+        EventLog.getInstance().logEvent(new Event(workouts.get(location).getName() + " Exercise removed!"));
         workouts.remove(location);
     }
 

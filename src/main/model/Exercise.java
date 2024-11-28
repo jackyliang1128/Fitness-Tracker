@@ -69,6 +69,9 @@ public class Exercise implements Writable {
         targetRepetition = rep;
 
         isComplete = isExerciseCompleted();
+        EventLog.getInstance().logEvent(new Event(name + " exercise modified to " + targetWeight + " lbs, "
+                + targetSet + " sets, and " + targetRepetition + " reps."));
+
     }
 
     /*
