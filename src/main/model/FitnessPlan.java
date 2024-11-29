@@ -139,6 +139,8 @@ public class FitnessPlan implements Writable {
         json.put("name", planName);
         json.put("duration", duration);
         json.put("exercises", exercisesToJson());
+        EventLog.getInstance().logEvent(new Event(planName + " plan saved!"));
+
         return json;
     }
 

@@ -1,20 +1,32 @@
-{"fitnessplans": [{
-    "duration": 0,
-    "exercises": [
-        {
-            "set": 3,
-            "name": "Shoulder Press",
-            "weight": 60,
-            "type": "SHOULDER",
-            "rep": 8
-        },
-        {
-            "set": 7,
-            "name": "Lateral Raise",
-            "weight": 10,
-            "type": "BACK",
-            "rep": 5
-        }
-    ],
-    "name": "monday"
-}]}
+{"fitnessplans": [
+    {
+        "duration": 0,
+        "exercises": [
+            {
+                "set": 14,
+                "name": "Bench Press",
+                "weight": 12,
+                "type": "CHEST",
+                "rep": 5
+            },
+            {
+                "set": 3,
+                "name": "Shoulder Press",
+                "weight": 11,
+                "type": "SHOULDER",
+                "rep": 3
+            }
+        ],
+        "name": "Monday"
+    },
+    {
+        "duration": 0,
+        "exercises": [],
+        "name": "Tuesday"
+    },
+    {
+        "duration": 0,
+        "exercises": [],
+        "name": "Wednesday"
+    }
+]}

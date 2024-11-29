@@ -153,6 +153,8 @@ public class Exercise implements Writable {
         json.put("weight", targetWeight);
         json.put("set", targetSet);
         json.put("rep", targetRepetition);
+        EventLog.getInstance().logEvent(new Event(name + " Exercise saved!"));
+
         return json;
     }
 
