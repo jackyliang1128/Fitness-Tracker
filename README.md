@@ -59,7 +59,8 @@ As a consistent "gym-goer", I enjoy participating in fitness activities that imp
     1. clicking the button labelled "Go Back to Main Menu" if you are not there
     2. clicking the button labelled "Load Fitness Plans"
 
-**Phase 4: Task 2**
+## Phase 4: Task 2
+
 Thu Nov 28 00:53:22 PST 2024
 Bench Press Exercise added!
 
@@ -83,3 +84,8 @@ Lateral Raise exercise modified to 10.0 lbs, 7 sets, and 5 reps.
 
 Thu Nov 28 00:54:58 PST 2024
 Bench Press Exercise removed!
+
+## Phase 4: Task 3
+
+The most notable refactoring I would do is in my FitnessAppGUI class. Currently, the class handles everything with regards to the GUI, which is not ideal as there are many responsibilities. I would refactor by seperating the methods in the GUI to adhere to the single responsibility principle. Specifically, I would have a screen class that handles updating the Jframe of the GUI and a button class that handles actions related to buttons. Furthermore, when I was writing the methods in my GUI class, I noticed that there were repeated/similar code. To improve readibility and eliminate redundant code, I would extract similar code that are found across different methods into a helper function. In my model package, I would also make my Excerise class a super class and created a new class called GymExercise that extends to it. This is especially useful if I do intend to add more types of exercise in the future, such as home exercises (yoga, calisthenics) or cardio exercises (running, swimming).
+
