@@ -28,5 +28,16 @@
         "duration": 0,
         "exercises": [],
         "name": "Wednesday"
+    },
+    {
+        "duration": 0,
+        "exercises": [{
+            "set": 1,
+            "name": "test",
+            "weight": 1,
+            "type": "CHEST",
+            "rep": 1
+        }],
+        "name": "thursday"
     }
 ]}
