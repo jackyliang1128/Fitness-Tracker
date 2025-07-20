@@ -24,7 +24,6 @@ public class Exercise implements Writable {
 
     private List<Integer> repDone;
 
-    private int test;
 
 
     // private double duration; // time in minutes
@@ -48,7 +47,7 @@ public class Exercise implements Writable {
         currentSet = 0;
         repDone = new ArrayList<>();
 
-        test = 0;
+
     }
 
     /*
