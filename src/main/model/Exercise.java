@@ -23,7 +23,12 @@ public class Exercise implements Writable {
     private int currentSet;
 
     private List<Integer> repDone;
+
+    private int test;
+
+
     // private double duration; // time in minutes
+
 
     /*
      * REQUIRES: exerciseName has a non-zero length
@@ -43,6 +48,7 @@ public class Exercise implements Writable {
         currentSet = 0;
         repDone = new ArrayList<>();
 
+        test = 0;
     }
 
     /*
